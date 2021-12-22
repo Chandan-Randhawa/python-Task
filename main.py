@@ -12,7 +12,7 @@ def validate_email(email):
         return True
     return False
    
-app = FastAPI()
+app = FastAPI() 
 
 try :
     @app.post("/sendEmail")
@@ -24,7 +24,7 @@ try :
         publish_to_redis(email)
         return JSONResponse(status_code=200, content={"message": "email has been sent"})
 except Exception as error:
-    print (error)
+    print (error) 
 
 def publish_to_redis(email):
     redis_pub = redis.Redis.from_url(Constants.redis_host)
